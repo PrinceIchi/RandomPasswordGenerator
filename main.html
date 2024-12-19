@@ -7,38 +7,40 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <section class="center">
 <h2>Generate a Random Password</h2>
 <form class="center">
-    <div>
-    <label for="Length">Password Length</label>
-    <input type="number" id="Length" name="Length" min="4" max="100"/>
+    <div class="pwd-length">
+    <label for="length"><strong>Password Length</strong></label>
+    <input type="number" id="length" name="length" min="4" max="100" value="4"/>
 </div>
+<div class="checkboxes">
+    <p><strong>Select Password Properties:</strong></p>
 <div>
-    <p>Select password properties:</p>
-<div>
+    <input type="checkbox" id="lowercase" name="lowercase" checked>
     <label for="lowercase">Lowercase Characters</label>
-    <input type="checkbox" id="lowercase" name="lowercase">
 </div>
 
     <div>
-    <label for="uppercase">Uppercase Characters</label>
     <input type="checkbox" id="uppercase" name="uppercase">
+    <label for="uppercase">Uppercase Characters</label>
 </div>
 
     <div>
-    <label for="numbers">Numbers (0-9)</label>
     <input type="checkbox" id="numbers" name="numbers">
+    <label for="numbers">Numbers (0-9)</label>
 </div>
 
     <div>
-    <label for="special">Special Characters</label>
     <input type="checkbox" id="special" name="special">
+    <label for="special">Special Characters</label>
 </div>
 </div>
+<div id="password"></div>
 <br>
-
-    <button>Generate Password</button>
+    <button type="button" onclick="generatePassword()">Generate Password</button>
 </form>
-    <script href="script.js"></script>
+</section>
+    <script src="script.js"></script>
 </body>
 </html>
