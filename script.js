@@ -15,9 +15,16 @@ function getPasswordProperties() {
     return properties;
 }
 
-function generatePassword() {
-const length = getPasswordLength();
-const properties = getPasswordProperties();
+function getLowercaseChar() {
+    const a = 97;
+    let chars = [];
 
-console.log(length, properties)
+    for(let i = a; i < a + 26; i++) {
+        chars.push(String.fromCharCode(i))
+    }
+}
+
+function generatePassword() {
+    const length = getPasswordLength();
+    const properties = getPasswordProperties();
 }
