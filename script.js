@@ -19,8 +19,8 @@ function getChars(lowercase = true) {
     const start = lowercase ? 97 : 65;
     let chars = [];
 
-    for(let i = a; i < a + 26; i++) {
-        chars.push(String.fromCharCode(i))
+    for (let i = start; i < start + 26; i++) {
+        chars.push(String.fromCharCode(i));
     }
 
     return chars;
@@ -50,7 +50,17 @@ function generatePassword() {
     if (properties.uppercase) characters.push(...uppercaseChars);
     if (properties.numbers) characters.push(...numbers);
     if (properties.special) characters.push(...special);
+
+    if (characters.length === 0) {
+        return alert("You must select at least one set of characters.");
+    }
     
     let pwd = [];
-    for (let i = 0; i < length; i++) {}
+    for (let i = 0; i < length; i++) {
+        const randomIdx = Math.floor(Math.random() * characters.length);
+        const char = characters[randomIdx];
+        pwd.push(char);
+    }
+    const pwdString = pwd.join("");
+    document.getElementById("password").innerHTML = "<p>" + pwdString + "</p>";
 }
