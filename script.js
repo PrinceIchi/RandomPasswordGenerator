@@ -15,16 +15,42 @@ function getPasswordProperties() {
     return properties;
 }
 
-function getLowercaseChar() {
-    const a = 97;
+function getChars(lowercase = true) {
+    const start = lowercase ? 97 : 65;
     let chars = [];
 
     for(let i = a; i < a + 26; i++) {
         chars.push(String.fromCharCode(i))
     }
+
+    return chars;
 }
+
+function getNumbers() {
+    const nums = [];
+
+    for (let i = 0; i < 10; i++) {
+        nums.push(i)
+    }
+
+    return nums;
+}
+
+const lowercaseChars = getChars(true);
+const uppercaseChars = getChars(false);
+const numbers = getNumbers();
+const special = ["!", "@", "#", "%", "^", "*", "&", "(", ")", "-", "_"];
 
 function generatePassword() {
     const length = getPasswordLength();
     const properties = getPasswordProperties();
+
+    const characters = [];
+    if (properties.lowercase) characters.push(...lowercaseChars);
+    if (properties.uppercase) characters.push(...uppercaseChars);
+    if (properties.numbers) characters.push(...numbers);
+    if (properties.special) characters.push(...special);
+    
+    let pwd = [];
+    for (let i = 0; i < length; i++) {}
 }
